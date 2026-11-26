@@ -5,7 +5,10 @@ class Solution:
         i = 0
         
         while i < len(prices):
-            min_price=min(min_price,prices[i])
-            max_profit=max(max_profit,prices[i]-min_price)
-            i+=1
+            if prices[i] < min_price:
+                min_price = prices[i]
+            elif prices[i] - min_price > max_profit:
+                max_profit = prices[i] - min_price
+            i += 1
+            
         return max_profit
